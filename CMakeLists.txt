@@ -1,0 +1,13 @@
+PROJECT(ClosestPoint)
+
+cmake_minimum_required(VERSION 2.6)
+
+FIND_PACKAGE(VTK) 
+IF(VTK_FOUND)
+  INCLUDE(${VTK_USE_FILE}) 
+ELSE(VTK_FOUND)
+  MESSAGE(FATAL_ERROR "VTK not found. Please set VTK_DIR.") 
+ENDIF(VTK_FOUND)
+
+ADD_EXECUTABLE(ClosestPoint main.cxx)
+TARGET_LINK_LIBRARIES(ClosestPoint vtkIO)
